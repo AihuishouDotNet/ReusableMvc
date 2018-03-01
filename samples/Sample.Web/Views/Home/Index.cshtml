@@ -1,0 +1,19 @@
+﻿@using LazyMortal.Multipipeline
+@using LazyMortal.ReusableMvc.StaticFiles
+@using Microsoft.AspNetCore.Mvc.Controllers
+@using Microsoft.AspNetCore.Mvc.Razor
+@using Microsoft.AspNetCore.Routing
+@inject DefaultStaticFiles DefaultStaticFiles
+@Context.GetPipeline()?.Name
+<br/>
+@DefaultStaticFiles.RenderHtml("js")
+<br/>
+@DefaultStaticFiles.RenderHtml("css")
+
+@{
+	var descriptor = ViewContext.ActionDescriptor as ControllerActionDescriptor;
+}
+<br/>
+Controller: @descriptor?.ControllerTypeInfo.FullName
+<br/>
+Action: @descriptor?.ActionName
