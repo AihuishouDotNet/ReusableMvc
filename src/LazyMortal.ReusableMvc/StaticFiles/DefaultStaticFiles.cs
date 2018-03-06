@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LazyMortal.ReusableMvc.StaticFiles
 {
     public class DefaultStaticFiles : Dictionary<string, string>
     {
+        [Obsolete("asp-append-version 标签无效，启用此方法，改用GetPath获取文件路径")]
         public virtual string RenderHtml(string fileType)
         {
             fileType = fileType.ToLower();
